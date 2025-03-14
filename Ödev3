@@ -1,0 +1,36 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // While döngüsünün örneği
+        int i = 1;
+
+        Console.WriteLine("While Döngüsü:");
+        while (i <= 5) // Koşul burada kontrol edilir
+        {
+            Console.WriteLine($"i = {i}");
+            i++; // i'yi artırarak döngüden çıkma koşulunu sağlarız
+        }
+    }
+}
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Do-while döngüsünün örneği
+        int i = 1;
+
+        Console.WriteLine("\nDo-While Döngüsü:");
+        do
+        {
+            Console.WriteLine($"i = {i}");
+            i++; // i'yi artırarak döngüden çıkma koşulunu sağlarız
+        }
+        while (i <= 5); // Koşul burada kontrol edilir
+    }
+}
