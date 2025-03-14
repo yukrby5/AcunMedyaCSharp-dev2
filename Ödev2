@@ -1,0 +1,39 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Kullanıcıdan araba yaşını al
+        Console.WriteLine("Arabanızın yaşını giriniz:");
+        int arabaYasi = Convert.ToInt32(Console.ReadLine());
+
+        // Araba yaşını kontrol et ve durumu yazdır
+        Console.WriteLine(ArabaDurumu(arabaYasi));
+    }
+
+    // Araba durumunu belirleyen metod
+    static string ArabaDurumu(int arabaYasi)
+    {
+        if (arabaYasi >= 0 && arabaYasi <= 10)
+        {
+            return "Arabanız yeni";
+        }
+        else if (arabaYasi >= 11 && arabaYasi <= 20)
+        {
+            return "Servise götürmeniz gerekebilir";
+        }
+        else if (arabaYasi >= 21 && arabaYasi <= 30)
+        {
+            return "Arabanız hurdaya çıkabilir";
+        }
+        else if (arabaYasi < 0 || arabaYasi > 30)
+        {
+            return "Ya hiç üretilmedi ya da trafikten men edilmiştir";
+        }
+        else
+        {
+            return "Geçersiz yaş!";
+        }
+    }
+}
