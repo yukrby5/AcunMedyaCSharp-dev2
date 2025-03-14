@@ -1,0 +1,47 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Kullanıcıdan yaş bilgisini al
+        Console.WriteLine("Yaşınızı giriniz:");
+        int yas = Convert.ToInt32(Console.ReadLine());
+
+        // Yaş kategorisini belirle ve yazdır
+        Console.WriteLine(YasKategorisiBelirle(yas));
+    }
+
+    // Yaş kategorisini belirleyen metod 
+    static string YasKategorisiBelirle(int yas)
+    {
+        if (yas >= 0 && yas <= 18)
+        {
+            return "Küçüksünüz";
+        }
+        else if (yas >= 19 && yas <= 35)
+        {
+            return "Gençsiniz";
+        }
+        else if (yas >= 36 && yas <= 55)
+        {
+            return "Yetişkinsiniz";
+        }
+        else if (yas >= 56 && yas <= 75)
+        {
+            return "Yaşlısınız";
+        }
+        else if (yas >= 76 && yas <= 99)
+        {
+            return "Çok yaşlısınız";
+        }
+        else if (yas < 0 || yas > 99)
+        {
+            return "Ya hiç doğmadınız ya da çoktan öldünüz...";
+        }
+        else
+        {
+            return "Geçersiz yaş!";
+        }
+    }
+}
