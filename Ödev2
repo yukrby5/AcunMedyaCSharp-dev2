@@ -37,3 +37,45 @@ class Program
         }
     }
 }
+
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Kullanıcıdan araba yaşını al
+        Console.WriteLine("Arabanızın yaşını giriniz:");
+        int arabaYasi = Convert.ToInt32(Console.ReadLine());
+
+        // Araba yaşını kontrol et ve durumu yazdır
+        Console.WriteLine(ArabaDurumuSwitch(arabaYasi));
+    }
+
+    // Araba durumunu belirleyen switch-case metod
+    static string ArabaDurumuSwitch(int arabaYasi)
+    {
+        // Araba yaşını kategorize et
+        string durum;
+
+        switch (arabaYasi)
+        {
+            case int n when (n >= 0 && n <= 10):
+                durum = "Arabanız yeni";
+                break;
+            case int n when (n >= 11 && n <= 20):
+                durum = "Servise götürmeniz gerekebilir";
+                break;
+            case int n when (n >= 21 && n <= 30):
+                durum = "Arabanız hurdaya çıkabilir";
+                break;
+            default:
+                durum = "Ya hiç üretilmedi ya da trafikten men edilmiştir";
+                break;
+        }
+
+        return durum;
+    }
+}
+
