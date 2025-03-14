@@ -1,0 +1,60 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Arabaların listesi
+        List<Araba> arabalar = new List<Araba>
+        {
+            new Araba("Toyota", "Corolla", 6.5, 100), // 6.5 litre/100km, 100 km mesafe
+            new Araba("Ford", "Focus", 7.2, 150),    // 7.2 litre/100km, 150 km mesafe
+            new Araba("BMW", "320i", 8.0, 200),      // 8.0 litre/100km, 200 km mesafe
+            new Araba("Audi", "A4", 6.0, 120)        // 6.0 litre/100km, 120 km mesafe
+        };
+
+        // Arabaların benzin tüketimlerini hesapla ve yazdır
+        double toplamBenzinTuketimi = 0;
+
+        Console.WriteLine("Arabaların Benzin Tüketimi:\n");
+
+        foreach (var araba in arabalar)
+        {
+            araba.BenzinTuketimiHesapla();
+            toplamBenzinTuketimi += araba.BenzinTuketimi;  // Her arabaya ait benzin tüketimini topluyoruz
+        }
+
+        // Toplam benzin tüketimini yazdır
+        Console.WriteLine($"\nToplam Benzin Tüketimi: {toplamBenzinTuketimi} Litre");
+    }
+}
+
+// Araba sınıfı
+class Araba
+{
+    public string Marka { get; set; }
+    public string Model { get; set; }
+    public double BenzinTuketimiPer100km { get; set; } // Benzin tüketimi litre/100km
+    public double Mesafe { get; set; } // Araba ile gidilen mesafe (km)
+    public double BenzinTuketimi { get; private set; } // Toplam benzin tüketimi (litre)
+
+    // Constructor
+    public Araba(string marka, string model, double benzinTuketimiPer100km, double mesafe)
+    {
+        Marka = marka;
+        Model = model;
+        BenzinTuketimiPer100km = benzinTuketimiPer100km;
+        Mesafe = mesafe;
+    }
+
+    // Benzin tüketimi hesaplama metodu
+    public void BenzinTuketimiHesapla()
+    {
+        // Benzin tüketimi, (mesafe / 100) * benzin tüketimi per 100 km formülü ile hesaplanır
+        BenzinTuketimi = (Mesafe / 100) * BenzinTuketimiPer100km;
+
+        // Araba bilgilerini ve benzin tüketimini yazdır
+        Console.WriteLine($"{Marka} {Model} - Benzin Tüketimi: {BenzinTuketimi} Litre (Mesafe: {Mesafe} km, Tüketim: {BenzinTuketimiPer100km} L/100km)");
+    }
+}
